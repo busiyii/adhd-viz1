@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>模块二：患者现状 - 成人 ADHD 患者生存图鉴</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --purple: #e8d3ff;
+      --blue: #deecff;
+      --bg: #f3f8ff;
+      --txt: #222;
+      --radius: 18px;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: "微软雅黑", "Heiti SC", sans-serif;
+      background: var(--bg);
+      color: var(--txt);
+    }
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: #fff9;
+      border-bottom: 1px solid #eef3fa;
+      backdrop-filter: blur(5px);
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+    }
+    .home-link {
+      color: #3a4a6b;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+    nav ul {
+      display: flex;
+      gap: 22px;
+      list-style: none;
+      font-size: .95rem;
+      font-weight: bold;
+    }
+    nav a {
+      color: #555;
+      text-decoration: none;
+      padding: 6px 10px;
+      border-radius: 8px;
+      transition: .15s;
+    }
+    nav a.active,
+    nav a:hover {
+      background: var(--blue);
+      color: #000;
+    }
+    section {
+      padding: 80px 6vw 60px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h2 {
+      font-size: 1.9rem;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #3a4a6b;
+      position: relative;
+    }
+    h2::after {
+      content: "";
+      width: 60px;
+      height: 4px;
+      background: var(--purple);
+      position: absolute;
+      left: 50%;
+      bottom: -8px;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+    .section-intro {
+      max-width: 900px;
+      font-size: 1.05rem;
+      line-height: 1.9;
+      margin-bottom: 35px;
+      text-align: center;
+    }
+    /* iframe 容器 */
+    .frame-wrap {
+      width: 100%;
+      max-width: 1100px;
+      overflow: hidden;
+      background: transparent;
+      box-shadow: none;
+      border-radius: 0;
+      padding: 0;
+    }
+    .auto-iframe {
+      width: 100%;
+      border: 0;
+      min-height: 700px;
+      overflow: hidden;
+    }
+    footer {
+      padding: 60px 0 40px;
+      text-align: center;
+      font-size: .9rem;
+      color: #666;
+    }
+    @media(max-width:768px) {
+      nav ul {
+        gap: 12px;
+        font-size: .85rem;
+      }
+      .auto-iframe {
+        min-height: 640px;
+      }
+    }
+    .hl {
+      background: #f0dafe;   
+      padding: 0 4px;
+      border-radius: 4px;
+    }
+    .module-nav {
+      margin: 20px 0;
+      text-align: center;
+    }
+    .module-nav a {
+      display: inline-block;
+      margin: 0 10px;
+      color: #3a4a6b;
+      text-decoration: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+    .module-nav a:hover, .module-nav a.active {
+      background: var(--blue);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html" class="home-link">返回首页</a>
+    <nav>
+      <ul>
+        <li><a href="#voices" class="active">患者心声</a></li>
+        <li><a href="#help">求助主题</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- 患者心声 -->
+  <section id="voices">
+    <h2>网络求助与心声</h2>
+    <p class="section-intro">在知乎、小红书、豆瓣等平台上，“ADHD”逐渐成为热词。<br>
+      小红书上的<span class="hl"> #ADHD 话题</span>浏览量高达 4.7 亿次，讨论帖近 349.4 万，热度超过 99.9% 的其他话题。<br>
+      知乎上一条关于<span class="hl">“成人 ADHD 的真实感受”</span>的提问，收到了<span class="hl"> 239 条</span>回答。<br>
+      当这些回答变成词云，最醒目的词是：<br>
+      “焦虑”“启动困难”“控制不住”“自责”……<br>
+      这些词背后，是无数次“做不到”之后的自我否定，是对自身状况无从解释的深度困惑。<br>
+      </p>
+    <div class="frame-wrap">
+      <iframe class="auto-iframe" src="ciyun.html" scrolling="no" title="词云"></iframe>
+    </div>
+  </section>
+
+  <!-- 求助主题 -->
+  <section id="help">
+    <p class="section-intro">
+      从豆瓣小组<span class="hl">【ADD/ADHD患者】</span>的近三年发帖数据中，筛选<span class="hl"> 500 条</span>“疑难解惑”模块标题，<br>
+      提取出了用户关注最多的问题类型。<br>
+      点击下方图表节点，你将看到：<br>
+      哪些主题被反复求助<br>
+      哪些问题最缺乏答案<br>
+      这些关键词，是潜在患者在网络黑暗森林中摸索出口的微光。<br>
+      <span class="hl">点击任何主题的条形图区域</span>可查看该主题下的具体问题。再次点击同一区域可关闭问题面板。
+    </p>
+    <div class="frame-wrap">
+      <iframe class="auto-iframe" src="yihuo.html" scrolling="no" title="关键词分析"></iframe>
+    </div>
+  </section>
+
+  <div class="module-nav">
+    <a href="module1.html">← 上一个模块</a>
+    <a href="index.html">返回首页</a>
+    <a href="module3.html">下一个模块 →</a>
+  </div>
+
+  <footer>
+    <div class="credits">
+      数据来源：<br>
+      《中国成人注意缺陷多动障碍诊断和治疗专家共识（2023版）》<br>
+      青衫 Neuro（<a href="https://qingshanasd.cn" target="_blank" rel="noopener">qingshanasd.cn</a>）<br>
+      ADHD: Symptoms and Diagnosis. Centers for Disease Control and Prevention, 2017-08-31.<br>
+      Data and Statistics on ADHD – CDC, MMWR 73 (40): e240, 2023.<br>
+      <br>
+      网页所有图片皆由大语言模型生成
+    </div>
+  </footer>
+
+  <script>
+    /* 导航高亮 */
+    const navLinks = [...document.querySelectorAll('nav a')];
+    const sections = [...document.querySelectorAll('section')];
+    function highlightNav() {
+      const idx = sections.findIndex(sec =>
+        sec.getBoundingClientRect().top <= 120 &&
+        sec.getBoundingClientRect().bottom > 120
+      );
+      navLinks.forEach(l => l.classList.remove('active'));
+      if (idx > -1) navLinks[idx].classList.add('active');
+    }
+    window.addEventListener('scroll', highlightNav);
+    highlightNav();
+
+    /* iframe 高度实时适配 */
+    function observeFrame(frame) {
+      try {
+        const doc = frame.contentDocument || frame.contentWindow.document;
+        const setHeight = () => frame.style.height = doc.body.scrollHeight + 'px';
+        setHeight(); // 首次
+        if ('ResizeObserver' in window) {
+          const ro = new ResizeObserver(setHeight);
+          const target = doc.querySelector('.cards-container') || doc.body;
+          ro.observe(target);
+          setHeight = () => frame.style.height = target.scrollHeight + 40 + 'px';
+        } else {
+          frame._poll = setInterval(setHeight, 500);
+        }
+      } catch (e) {
+        console.warn('无法访问 iframe 文档，可能跨域', e);
+      }
+    }
+    function initFrames() {
+      const frames = [...document.querySelectorAll('iframe.auto-iframe')];
+      frames.forEach(f => {
+        if (f.dataset.observed) return;
+        f.dataset.observed = '1';
+        f.addEventListener('load', () => observeFrame(f));
+      });
+    }
+    initFrames();
+  </script>
+</body>
+</html>

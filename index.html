@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>被误解的“多动症”：成人 ADHD 患者生存图鉴</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --purple: #e8d3ff;
+      --blue: #deecff;
+      --bg: #f3f8ff;
+      --txt: #222;
+      --radius: 18px;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: "微软雅黑", "Heiti SC", sans-serif;
+      background: var(--bg);
+      color: var(--txt);
+    }
+    /* 封面样式 */
+    .cover {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+      background: url('./fengmian.png') center/cover no-repeat;
+      text-shadow: 0 3px 8px rgba(0,0,0,.25);
+    }
+    .cover h1 {
+      font-size: 4rem;
+      font-weight: 800;
+      line-height: 1.4;
+      letter-spacing: .03em;
+      margin-bottom: 60px;
+      max-width: 90%;
+    }
+    .button-container {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 20px;
+      width: 90%;
+      max-width: 1000px;
+    }
+    .module-btn {
+      background: rgba(255, 255, 255, 0.92);
+      border: none;
+      border-radius: 16px;
+      padding: 22px 40px;
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #3a4a6b;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+      text-decoration: none;
+      /* 关键修改：精确控制宽度，确保每行两个按钮 */
+      width: calc(50% - 15px);
+    }
+    .module-btn:hover {
+      background: var(--purple);
+      transform: translateY(-5px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    }
+    .scroll-tip {
+      margin-top: 80px;
+      font-size: 1.1rem;
+      animation: blink 1.6s infinite;
+    }
+    @keyframes blink {
+      0%,100% { opacity: 1; }
+      50% { opacity: .32; }
+    }
+    /* 移动端适配 */
+    @media(max-width:768px) {
+      .cover h1 {
+        font-size: 2.2rem;
+        margin-bottom: 40px;
+      }
+      .button-container {
+        gap: 20px;
+        width: 95%;
+      }
+      .module-btn {
+        padding: 18px 20px;
+        font-size: 1.1rem;
+        /* 移动端单列显示 */
+        width: 100%;
+      }
+      .scroll-tip {
+        margin-top: 60px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- 封面（整屏背景 + 大标题 + 模块按钮） -->
+  <section class="cover">
+    <h1>被误解的“多动症”<br>成人 ADHD 患者生存图鉴</h1>
+    <div class="button-container">
+      <a href="module1.html" class="module-btn">模块一：基础认知</a>
+      <a href="module2.html" class="module-btn">模块二：患者现状</a>
+      <a href="module3.html" class="module-btn">模块三：诊疗信息</a>
+      <a href="module4.html" class="module-btn">模块四：社会认知与自测</a>
+    </div>
+    <span class="scroll-tip">了解更多内容，请点击上方按钮</span>
+  </section>
+</body>
+</html>

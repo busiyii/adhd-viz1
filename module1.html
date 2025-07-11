@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>模块一：基础认知 - 成人 ADHD 患者生存图鉴</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --purple: #e8d3ff;
+      --blue: #deecff;
+      --bg: #f3f8ff;
+      --txt: #222;
+      --radius: 18px;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: "微软雅黑", "Heiti SC", sans-serif;
+      background: var(--bg);
+      color: var(--txt);
+    }
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: #fff9;
+      border-bottom: 1px solid #eef3fa;
+      backdrop-filter: blur(5px);
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+    }
+    .home-link {
+      color: #3a4a6b;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+    nav ul {
+      display: flex;
+      gap: 22px;
+      list-style: none;
+      font-size: .95rem;
+      font-weight: bold;
+    }
+    nav a {
+      color: #555;
+      text-decoration: none;
+      padding: 6px 10px;
+      border-radius: 8px;
+      transition: .15s;
+    }
+    nav a.active,
+    nav a:hover {
+      background: var(--blue);
+      color: #000;
+    }
+    section {
+      padding: 80px 6vw 60px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h2 {
+      font-size: 1.9rem;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #3a4a6b;
+      position: relative;
+    }
+    h2::after {
+      content: "";
+      width: 60px;
+      height: 4px;
+      background: var(--purple);
+      position: absolute;
+      left: 50%;
+      bottom: -8px;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+    .section-intro {
+      max-width: 900px;
+      font-size: 1.05rem;
+      line-height: 1.9;
+      margin-bottom: 35px;
+      text-align: center;
+    }
+    /* 正文介绍块 */
+    .cover-intro {
+      padding: 80px 6vw;
+      background: var(--bg);
+      text-align: center;
+      color: #222;
+    }
+    .cover-intro h2 {
+      font-size: 1.9rem;
+      margin-bottom: 24px;
+    }
+    .cover-intro p {
+      max-width: 900px;
+      margin: 0 auto;
+      line-height: 1.9;
+      font-size: 1.05rem;
+    }
+    /* iframe 容器 */
+    .frame-wrap {
+      width: 100%;
+      max-width: 1100px;
+      overflow: hidden;
+      background: transparent;
+      box-shadow: none;
+      border-radius: 0;
+      padding: 0;
+    }
+    .auto-iframe {
+      width: 100%;
+      border: 0;
+      min-height: 700px;
+      overflow: hidden;
+    }
+    footer {
+      padding: 60px 0 40px;
+      text-align: center;
+      font-size: .9rem;
+      color: #666;
+    }
+    @media(max-width:768px) {
+      nav ul {
+        gap: 12px;
+        font-size: .85rem;
+      }
+      .auto-iframe {
+        min-height: 640px;
+      }
+    }
+    .cover-intro .intro-image {
+      margin-top: 24px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+    .cover-intro .intro-image img {
+      max-width: 90%;
+      width: 70%;
+      max-width: 700px;
+      height: auto;
+      border-radius: 6px;
+    }
+    @media (max-width: 600px) {
+      .cover-intro .intro-image img {
+        width: 95%;
+      }
+    }
+    /* 共病率左右布局 */
+    .combo-flex {
+      display: flex;
+      gap: 20px;
+      align-items: stretch;
+    }
+    .combo-flex .left{flex:1;}
+    .combo-flex .right{flex:3;}
+    .combo-flex .left .section-intro {margin-top: 180px;}
+
+    /* 文字对齐 & 行距稍调 */
+    #comorbidity .section-intro{
+      text-align:left;             
+      line-height:1.9;
+    }
+    .hl {
+      background: #f0dafe;   
+      padding: 0 4px;
+      border-radius: 4px;
+    }
+    .module-nav {
+      margin: 20px 0;
+      text-align: center;
+    }
+    .module-nav a {
+      display: inline-block;
+      margin: 0 10px;
+      color: #3a4a6b;
+      text-decoration: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+    .module-nav a:hover, .module-nav a.active {
+      background: var(--blue);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html" class="home-link">返回首页</a>
+    <nav>
+      <ul>
+        <li><a href="#cover-intro" class="active">概述</a></li>
+        <li><a href="#types">ADHD类型</a></li>
+        <li><a href="#comorbidity">共病率</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- 正文介绍 -->
+  <section id="cover-intro" class="cover-intro">
+    <h2>“长大就好了吧？”</h2>
+    <p>
+      许多人对 ADHD的认知，仍停留在小时候那个坐不住、调皮捣蛋的“熊孩子”印象。<br>
+      对数百万尚未被识别的成人 ADHD 患者而言，现实远不如此简单。<br>
+      注意缺陷多动障碍（ADHD，attention deficit hyperactivity disorder）是一种常见的神经发育障碍，<br>
+      起病于儿童期，其中约 30% 至 50% 的患儿症状会<span class="hl">持续至成年。</span><br>
+      全球约 <span class="hl">2.58% </span>的成年人正在与 ADHD 并行生活，男女性别比例为 3∶2 ~ 1∶1。<br>
+      然而，真正接受治疗干预的成人仅有约三分之一。<br>
+      成人ADHD，往往带来更加<span class="hl">隐秘却深远的功能损害</span>：工作效率低、社交关系紧张、财务混乱、生活混沌……<br>
+      他们中有人学习好、学历高，甚至有一份稳定的工作，但仍深受注意力难以维持、时间管理困难、情绪起伏等困扰。<br>
+      他们在自责与挫败中反复挣扎，却始终找不到“到底出了什么问题”的答案。<br>
+    </p>
+    <div class="intro-image">
+      <img src="chatu2.png" alt="ADHD 插图" loading="lazy">
+    </div>
+  </section>
+
+  <!-- ADHD 类型 -->
+  <section id="types">
+    <h2>谁说只有一种“多动”？</h2>
+    <p class="section-intro">ADHD 并不“千人一面”。<br>
+      从症状表现来看，成人 ADHD 可分为三类：<br>
+      <span class="hl">注意力不足为主型</span>：像“大雄”一样，总是拖延、丢三落四、难以维持专注。<br>
+      <span class="hl">过动为主型</span>：如“胖虎”般易怒、难以安静、说话打断别人、控制不住情绪与行动。<br>
+      <span class="hl">混合型</span>：同时表现出上述两类特征，是成人中最常见的一型。<br>
+      <span class="hl">点击下方角色卡</span>，了解你身边是否有人正悄悄经历着这些“看不见的困境”。<br>
+    </p>
+    <div class="frame-wrap">
+      <iframe class="auto-iframe" src="leixing.html" scrolling="no" title="类型介绍"></iframe>
+    </div>
+  </section>
+
+  <!-- 共病率 -->
+  <section id="comorbidity">
+    <div class="combo-flex">
+      <div class="left">
+        <p class="section-intro">
+          并且，ADHD 往往不是“单线程”的疾病。
+          <span class="hl">75%</span> 患者<span class="hl">共病</span>至少一种精神障碍。<br>
+          抑郁障碍、焦虑障碍、双相障碍、人格障碍、物质使用障碍、睡眠障碍、精神分裂症、肥胖……<br>
+          当 ADHD 的症状被这些更常见的疾病“遮蔽”时，误诊、漏诊就成了常态。<br>
+          一份明确的诊断，往往意味着患者已经在诊室门外徘徊了太久。<br>
+        </p>
+      </div>
+      <div class="right frame-wrap">
+        <iframe class="auto-iframe" src="gongbinglv.html"
+                scrolling="no" title="共病率图"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <div class="module-nav">
+    <a href="index.html">返回首页</a>
+    <a href="module2.html">下一个模块 →</a>
+  </div>
+
+  <footer>
+    <div class="credits">
+      数据来源：<br>
+      《中国成人注意缺陷多动障碍诊断和治疗专家共识（2023版）》<br>
+      青衫 Neuro（<a href="https://qingshanasd.cn" target="_blank" rel="noopener">qingshanasd.cn</a>）<br>
+      ADHD: Symptoms and Diagnosis. Centers for Disease Control and Prevention, 2017-08-31.<br>
+      Data and Statistics on ADHD – CDC, MMWR 73 (40): e240, 2023.<br>
+      <br>
+      网页所有图片皆由大语言模型生成
+    </div>
+  </footer>
+
+  <script>
+    /* 导航高亮 */
+    const navLinks = [...document.querySelectorAll('nav a')];
+    const sections = [...document.querySelectorAll('section')];
+    function highlightNav() {
+      const idx = sections.findIndex(sec =>
+        sec.getBoundingClientRect().top <= 120 &&
+        sec.getBoundingClientRect().bottom > 120
+      );
+      navLinks.forEach(l => l.classList.remove('active'));
+      if (idx > -1) navLinks[idx].classList.add('active');
+    }
+    window.addEventListener('scroll', highlightNav);
+    highlightNav();
+
+    /* iframe 高度实时适配 */
+    function observeFrame(frame) {
+      try {
+        const doc = frame.contentDocument || frame.contentWindow.document;
+        const setHeight = () => frame.style.height = doc.body.scrollHeight + 'px';
+        setHeight(); // 首次
+        if ('ResizeObserver' in window) {
+          const ro = new ResizeObserver(setHeight);
+          const target = doc.querySelector('.cards-container') || doc.body;
+          ro.observe(target);
+          setHeight = () => frame.style.height = target.scrollHeight + 40 + 'px';
+        } else {
+          frame._poll = setInterval(setHeight, 500);
+        }
+      } catch (e) {
+        console.warn('无法访问 iframe 文档，可能跨域', e);
+      }
+    }
+    function initFrames() {
+      const frames = [...document.querySelectorAll('iframe.auto-iframe')];
+      frames.forEach(f => {
+        if (f.dataset.observed) return;
+        f.dataset.observed = '1';
+        f.addEventListener('load', () => observeFrame(f));
+      });
+    }
+    initFrames();
+  </script>
+</body>
+</html>
